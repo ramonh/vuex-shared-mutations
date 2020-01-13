@@ -44,6 +44,20 @@ const store = new Vuex.Store({
 });
 ```
 
+If you're using [modules](https://vuex.vuejs.org/guide/modules.html), these are supported too:
+
+```js
+import createMutationsSharer from "vuex-shared-mutations";
+
+const store = new Vuex.Store({
+  // ...
+  modules: {
+    SampleStore
+  },
+  plugins: [createMutationsSharer({ predicate: ["SampleStore/mutation1", "SampleStore/mutation2"] })]
+});
+```
+
 ## API
 
 ### `createMutationsSharer([options])`
